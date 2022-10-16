@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_args.c                                       :+:      :+:    :+:   */
+/*   push_swap_atoi.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/16 20:50:50 by ktakada           #+#    #+#             */
-/*   Updated: 2022/10/16 20:50:52 by ktakada          ###   ########.fr       */
+/*   Created: 2022/10/16 21:57:32 by ktakada           #+#    #+#             */
+/*   Updated: 2022/10/16 21:57:36 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/parse_args.h"
+#ifndef PUSH_SWAP_ATOI_H
+# define PUSH_SWAP_ATOI_H
 
-bool	is_args_valid(char **args)
-{
-	size_t	i;
-	int		*num;
+# include <stdbool.h>
+# include "../libft/includes/libft.h"
 
-	i = 1;
-	while (args[i] != NULL)
-	{
-		num = push_swap_atoi(args[i]);
-		if (num == NULL)
-			return (false);
-		i++;
-	}
-	return (true);
-}
+int	*push_swap_atoi(char *arg);
+
+#endif //PUSH_SWAP_ATOI_H

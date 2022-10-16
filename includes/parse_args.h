@@ -15,6 +15,8 @@
 
 # include <stdbool.h>
 # include <stddef.h>
+# include "../includes/push_swap_atoi.h"
+# include "../libft/includes/libft.h"
 
 bool	is_args_valid(char **args);
 

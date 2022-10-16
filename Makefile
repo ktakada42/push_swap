@@ -19,6 +19,7 @@ CFLAGS := -Wall -Wextra -Werror
 SRCSDIR := ./src/
 
 SRCS := parse_args.c \
+		push_swap_atoi.c \
 		utils.c \
 
 SRCS := $(addprefix $(SRCSDIR), $(SRCS))
