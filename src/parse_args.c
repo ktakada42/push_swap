@@ -26,15 +26,9 @@ t_dll	*parse_args(char **args)
 	{
 		num = push_swap_atoi(args[i]);
 		if (num == NULL)
-		{
-			list_clear(list);
-			return (NULL);
-		}
+			free_list_and_exit(list);
 		if (!can_list_push_back(list, *num))
-		{
-			list_clear(list);
-			return (NULL);
-		}
+			free_list_and_exit(list);
 		i++;
 	}
 	return (list);

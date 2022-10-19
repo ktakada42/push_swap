@@ -42,6 +42,12 @@ void	list_clear(t_dll *list)
 	free(list);
 }
 
+t_dll	*free_list_and_exit(t_dll *list)
+{
+	list_clear(list);
+	return (NULL);
+}
+
 bool	can_list_push_back(t_dll *list, int value)
 {
 	t_dll	*last;
