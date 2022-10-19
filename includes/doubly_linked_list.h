@@ -27,5 +27,6 @@ t_dll	*new_doubly_linked_list(void);
 void	list_clear(t_dll *list);
 t_dll	*free_list_and_exit(t_dll *list);
 bool	can_list_push_back(t_dll *list, int value);
+bool	can_list_push_front(t_dll *list, int value);
 
 #endif //DOUBLY_LINKED_LIST_H
