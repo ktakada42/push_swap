@@ -11,12 +11,22 @@
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
+#include <stdio.h>
 
 int	main(int argc, char **argv)
 {
+	t_dll	*list;
+	t_dll	*next;
+
 	if (argc == 1)
 		return (0);
-	if (is_args_valid(argv))
-		return (0);
-	exit_with_error();
+	list = parse_args(argv);
+	if (list == NULL)
+		exit_with_error();
+	next = list->next;
+	while (next != list)
+	{
+		printf("value: %d\n", next->value);
+		next = next->next;
+	}
 }

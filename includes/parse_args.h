@@ -13,11 +13,10 @@
 #ifndef PARSE_ARGS_H
 # define PARSE_ARGS_H
 
-# include <stdbool.h>
 # include <stddef.h>
+# include "../includes/doubly_linked_list.h"
 # include "../includes/push_swap_atoi.h"
-# include "../libft/includes/libft.h"
 
-bool	is_args_valid(char **args);
+t_dll	*parse_args(char **args);
 
 #endif //PARSE_ARGS_H

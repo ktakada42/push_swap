@@ -12,18 +12,30 @@
 
 #include "../includes/parse_args.h"
 
-bool	is_args_valid(char **args)
+t_dll	*parse_args(char **args)
 {
 	size_t	i;
+	t_dll	*list;
 	int		*num;
 
 	i = 1;
+	list = new_doubly_linked_list();
+	if (list == NULL)
+		return (NULL);
 	while (args[i] != NULL)
 	{
 		num = push_swap_atoi(args[i]);
 		if (num == NULL)
-			return (false);
+		{
+			list_clear(list);
+			return (NULL);
+		}
+		if (!can_list_push_back(list, *num))
+		{
+			list_clear(list);
+			return (NULL);
+		}
 		i++;
 	}
-	return (true);
+	return (list);
 }

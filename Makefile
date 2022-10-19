@@ -18,7 +18,8 @@ CFLAGS := -Wall -Wextra -Werror
 
 SRCSDIR := ./src/
 
-SRCS := parse_args.c \
+SRCS := doubly_linked_list.c \
+		parse_args.c \
 		push_swap_atoi.c \
 		utils.c \
 
