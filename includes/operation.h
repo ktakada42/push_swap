@@ -18,5 +18,6 @@
 void	swap(t_dll *list);
 void	push_a(t_dll *list_a, t_dll *list_b);
 void	push_b(t_dll *list_b, t_dll *list_a);
+void	rotate(t_dll *list);
 
 #endif //OPERATION_H
