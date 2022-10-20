@@ -48,6 +48,23 @@ t_dll	*free_list_and_exit(t_dll *list)
 	return (NULL);
 }
 
+size_t	get_list_size(t_dll *list)
+{
+	size_t	size;
+	t_dll	*next;
+
+	if (list == NULL)
+		return (0);
+	size = 1;
+	next = list->next;
+	while (next != list)
+	{
+		next = next->next;
+		size++;
+	}
+	return (size);
+}
+
 //#include <stdio.h>
 //
 //// test create empty list and free
@@ -65,5 +82,34 @@ t_dll	*free_list_and_exit(t_dll *list)
 //	printf("current: %p\n", list);
 //	printf("prev: %p\n", list->prev);
 //	printf("next: %p\n", list->next);
+//	list_clear(list);
+//}
+//
+//// test get_list_size()
+//int main(void)
+//{
+//	t_dll	*list;
+//	size_t 	size;
+//
+//	size = get_list_size(NULL);
+//	printf("expected: 0 / actual: %zu\n", size);
+//	list = new_doubly_linked_list();
+//	if (list == NULL)
+//	{
+//		printf("create new list Error\n");
+//		exit(EXIT_FAILURE);
+//	}
+//	size = get_list_size(list);
+//	printf("expected: 1 / actual: %zu\n", size);
+//	if (can_list_push_back(list, 0))
+//	{
+//		size = get_list_size(list);
+//		printf("expected: 2 / actual: %zu\n", size);
+//	}
+//	else
+//	{
+//		printf("error at push_back()\n");
+//		free_list_and_exit(list);
+//	}
 //	list_clear(list);
 //}
