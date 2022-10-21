@@ -17,6 +17,7 @@
 # include "../includes/doubly_linked_list.h"
 # include "../includes/push_swap_atoi.h"
 
+int		*put_args_to_array(int len, char **args);
 t_dll	*parse_args(char **args);
 
 #endif //PARSE_ARGS_H

@@ -15,11 +15,16 @@
 
 int	main(int argc, char **argv)
 {
+	int		*array;
 	t_dll	*list;
 	t_dll	*next;
 
 	if (argc == 1)
 		return (0);
+	array = put_args_to_array(argc - 1, argv);
+	if (array == NULL)
+		exit_with_error();
+	free(array);
 	list = parse_args(argv);
 	if (list == NULL)
 		exit_with_error();
@@ -29,4 +34,5 @@ int	main(int argc, char **argv)
 		printf("value: %d\n", next->value);
 		next = next->next;
 	}
+	list_clear(list);
 }

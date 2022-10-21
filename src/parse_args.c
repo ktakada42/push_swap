@@ -12,6 +12,33 @@
 
 #include "../includes/parse_args.h"
 
+int	*put_args_to_array(int len, char **args)
+{
+	int		*array;
+	size_t	i;
+	size_t	j;
+	int		*num;
+
+	array = (int *)malloc(sizeof(int) * len);
+	if (array == NULL)
+		return (NULL);
+	i = 1;
+	j = 0;
+	while (args[i] != NULL)
+	{
+		num = push_swap_atoi(args[i]);
+		if (num == NULL)
+		{
+			free(array);
+			return (NULL);
+		}
+		array[j] = *num;
+		i++;
+		j++;
+	}
+	return (array);
+}
+
 t_dll	*parse_args(char **args)
 {
 	size_t	i;
@@ -33,3 +60,29 @@ t_dll	*parse_args(char **args)
 	}
 	return (list);
 }
+
+//#include <stdio.h>
+//
+//// test put_args_to_array()
+//int main(int argc, char **argv)
+//{
+//	int 	*array;
+//	size_t	i = 0;
+//
+//	if (argc != 0)
+//	{
+//		array = put_args_to_array(argc - 1, argv);
+//		if (array == NULL)
+//		{
+//			printf("error at put_args_to_array\n");
+//			free(array);
+//			exit(EXIT_FAILURE);
+//		}
+//		while (i < argc - 1)
+//		{
+//			printf("array[%zu]: %d\n", i, array[i]);
+//			i++;
+//		}
+//		free(array);
+//	}
+//}
