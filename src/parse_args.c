@@ -39,6 +39,23 @@ int	*put_args_to_array(int len, char **args)
 	return (array);
 }
 
+bool	is_args_unique(int *array, int len)
+{
+	int	i;
+	int	current;
+
+	i = 1;
+	current = array[0];
+	while (i < len)
+	{
+		if (array[i] == current)
+			return (false);
+		current = array[i];
+		i++;
+	}
+	return (true);
+}
+
 t_dll	*parse_args(char **args)
 {
 	size_t	i;
@@ -85,4 +102,20 @@ t_dll	*parse_args(char **args)
 //		}
 //		free(array);
 //	}
+//}
+//
+//// test is_args_unique()
+//int main(int argc, char **argv)
+//{
+//	int *array;
+//
+//	if (argc == 1)
+//		return (0);
+//	array = put_args_to_array(argc - 1, argv);
+//	if (array == NULL)
+//		exit(EXIT_FAILURE);
+//	if (is_args_unique(array, argc - 1))
+//		printf("unique\n");
+//	else
+//		printf("not unique\n");
 //}

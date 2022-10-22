@@ -24,6 +24,11 @@ int	main(int argc, char **argv)
 	array = put_args_to_array(argc - 1, argv);
 	if (array == NULL)
 		exit_with_error();
+	if (!is_args_unique(array, argc - 1))
+	{
+		free(array);
+		exit_with_error();
+	}
 	free(array);
 	list = parse_args(argv);
 	if (list == NULL)
