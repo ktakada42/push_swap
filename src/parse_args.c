@@ -56,23 +56,6 @@ bool	is_args_unique(int *array, int len)
 	return (true);
 }
 
-bool	is_args_sorted(int *array, int len)
-{
-	int	i;
-	int	current;
-
-	i = 1;
-	current = array[0];
-	while (i < len)
-	{
-		if (current > array[i])
-			return (false);
-		current = array[i];
-		i++;
-	}
-	return (true);
-}
-
 t_dll	*parse_args(char **args)
 {
 	size_t	i;
@@ -95,8 +78,42 @@ t_dll	*parse_args(char **args)
 	return (list);
 }
 
+bool	is_list_sorted(t_dll *list)
+{
+	t_dll	*next;
+	t_dll	*last;
+	int		current;
+
+	next = list->next;
+	current = next->value;
+	last = list->prev;
+	while (next != last)
+	{
+		next = next->next;
+		if (current > next->value)
+			return (false);
+		current = next->value;
+	}
+	return (true);
+}
+
 //#include <stdio.h>
 //
+//// test is_args_unique()
+//int main(int argc, char **argv)
+//{
+//	int *array;
+//
+//	if (argc == 1)
+//		return (0);
+//	array = put_args_to_array(argc - 1, argv);
+//	if (array == NULL)
+//		exit(EXIT_FAILURE);
+//	if (is_args_unique(array, argc - 1))
+//		printf("unique\n");
+//	else
+//		printf("not unique\n");
+//}
 //// test put_args_to_array()
 //int main(int argc, char **argv)
 //{
@@ -119,35 +136,4 @@ t_dll	*parse_args(char **args)
 //		}
 //		free(array);
 //	}
-//}
-//
-//// test is_args_unique()
-//int main(int argc, char **argv)
-//{
-//	int *array;
-//
-//	if (argc == 1)
-//		return (0);
-//	array = put_args_to_array(argc - 1, argv);
-//	if (array == NULL)
-//		exit(EXIT_FAILURE);
-//	if (is_args_unique(array, argc - 1))
-//		printf("unique\n");
-//	else
-//		printf("not unique\n");
-//}
-//// test is_args_sorted()
-//int main(int argc, char **argv)
-//{
-//	int *array;
-//
-//	if (argc == 1)
-//		return (0);
-//	array = put_args_to_array(argc - 1, argv);
-//	if (array == NULL)
-//		exit(EXIT_FAILURE);
-//	if (is_args_sorted(array, argc - 1))
-//		printf("sorted\n");
-//	else
-//		printf("not sorted\n");
 //}
