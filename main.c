@@ -28,15 +28,16 @@ int	main(int argc, char **argv)
 		free(array);
 		exit_with_error();
 	}
-	if (is_args_sorted(array, argc - 1))
-	{
-		printf("sorted\n");
-		free(array);
-		return (0);
-	}
 	free(array);
 	list = parse_args(argv);
 	if (list == NULL)
 		exit_with_error();
+	if (is_list_sorted(list))
+	{
+		list_clear(list);
+		return (0);
+	}
+	else
+		printf("not sorted\n");
 	list_clear(list);
 }
