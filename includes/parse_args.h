@@ -19,6 +19,7 @@
 
 int		*put_args_to_array(int len, char **args);
 bool	is_args_unique(int *array, int len);
+bool	is_args_sorted(int *array, int len);
 t_dll	*parse_args(char **args);
 
 #endif //PARSE_ARGS_H
