@@ -17,6 +17,7 @@ int	main(int argc, char **argv)
 {
 	int		*array;
 	t_dll	*list;
+	size_t	size;
 
 	if (argc == 1)
 		return (0);
@@ -38,6 +39,10 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	else
-		printf("not sorted\n");
+	{
+		size = get_list_size(list);
+		if (size == 3)
+			sort_small_list(list);
+	}
 	list_clear(list);
 }

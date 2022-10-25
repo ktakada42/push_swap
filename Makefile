@@ -21,7 +21,12 @@ SRCSDIR := ./src/
 SRCS := doubly_linked_list.c \
 		doubly_linked_list_operation.c \
 		parse_args.c \
+		push.c \
 		push_swap_atoi.c \
+		reverse_rotate.c \
+		rotate.c \
+		sort_small_list.c \
+		swap.c \
 		utils.c \
 
 SRCS := $(addprefix $(SRCSDIR), $(SRCS))

@@ -14,7 +14,10 @@
 # define PUSH_SWAP_H
 
 # include <stdlib.h>
+# include "../includes/operation.h"
 # include "../includes/parse_args.h"
 # include "../includes/utils.h"
+
+void	sort_small_list(t_dll *list);
 
 #endif //PUSH_SWAP_H
