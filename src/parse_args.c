@@ -12,6 +12,35 @@
 
 #include "../includes/parse_args.h"
 
+static int		*put_args_to_array(int len, char **args);
+static bool		is_args_unique(int *array, int len);
+static t_dll	*free_array(int *array);
+
+t_dll	*parse_args(int len, char **args)
+{
+	int		*array;
+	int		i;
+	t_dll	*list;
+
+	array = put_args_to_array(len, args);
+	if (array == NULL)
+		return (NULL);
+	if (!is_args_unique(array, len))
+		return (free_array(array));
+	i = 0;
+	list = new_doubly_linked_list();
+	if (list == NULL)
+		return (free_array(array));
+	while (i < len)
+	{
+		if (!can_list_push_back(list, array[i]))
+			free_list_and_exit(list);
+		i++;
+	}
+	free(array);
+	return (list);
+}
+
 int	*put_args_to_array(int len, char **args)
 {
 	int		*array;
@@ -56,26 +85,10 @@ bool	is_args_unique(int *array, int len)
 	return (true);
 }
 
-t_dll	*parse_args(char **args)
+t_dll	*free_array(int *array)
 {
-	size_t	i;
-	t_dll	*list;
-	int		*num;
-
-	i = 1;
-	list = new_doubly_linked_list();
-	if (list == NULL)
-		return (NULL);
-	while (args[i] != NULL)
-	{
-		num = push_swap_atoi(args[i]);
-		if (num == NULL)
-			free_list_and_exit(list);
-		if (!can_list_push_back(list, *num))
-			free_list_and_exit(list);
-		i++;
-	}
-	return (list);
+	free(array);
+	return (NULL);
 }
 
 bool	is_list_sorted(t_dll *list)
@@ -136,4 +149,33 @@ bool	is_list_sorted(t_dll *list)
 //		}
 //		free(array);
 //	}
+//}
+//
+//// test is_list_sorted()
+//int main(void)
+//{
+//	t_dll	*list;
+//	int 	i = 1;
+//
+//	list = new_doubly_linked_list();
+//	if (list == NULL)
+//	{
+//		printf("error at new_doubly_linked_list()");
+//		exit(EXIT_FAILURE);
+//	}
+//	while (i < 4)
+//	{
+//		if (!can_list_push_back(list, i))
+//		{
+//			free(list);
+//			printf("error at can_list_push_back()");
+//			exit(EXIT_FAILURE);
+//		}
+//		i++;
+//	}
+//	if (is_list_sorted(list))
+//		printf("sorted\n");
+//	else
+//		printf("not sorted\n");
+//	list_clear(list);
 //}

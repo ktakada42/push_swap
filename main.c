@@ -15,22 +15,12 @@
 
 int	main(int argc, char **argv)
 {
-	int		*array;
 	t_dll	*list;
 	size_t	size;
 
 	if (argc == 1)
 		return (0);
-	array = put_args_to_array(argc - 1, argv);
-	if (array == NULL)
-		exit_with_error();
-	if (!is_args_unique(array, argc - 1))
-	{
-		free(array);
-		exit_with_error();
-	}
-	free(array);
-	list = parse_args(argv);
+	list = parse_args(argc - 1, argv);
 	if (list == NULL)
 		exit_with_error();
 	if (is_list_sorted(list))
