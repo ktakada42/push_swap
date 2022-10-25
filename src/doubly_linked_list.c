@@ -55,7 +55,7 @@ size_t	get_list_size(t_dll *list)
 
 	if (list == NULL)
 		return (0);
-	size = 1;
+	size = 0;
 	next = list->next;
 	while (next != list)
 	{
