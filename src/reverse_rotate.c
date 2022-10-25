@@ -35,14 +35,14 @@ void	rrr(t_dll *list_a, t_dll *list_b)
 
 void	reverse_rotate(t_dll *list)
 {
-	size_t	list_size;
+	size_t	size;
 	t_dll	*end;
 	t_dll	*start;
 
-	list_size = get_list_count(list);
-	if (list_size == 0 || list_size == 1 || list_size == 2)
+	size = get_list_size(list);
+	if (size == 0 || size == 1 || size == 2)
 		return ;
-	if (list_size == 3)
+	if (size == 3)
 	{
 		swap(list);
 		return ;
