@@ -31,6 +31,18 @@ void	swap(t_dll *list)
 	second->prev = list;
 }
 
+void	swap_a(t_dll *list_a)
+{
+	swap(list_a);
+	ft_putendl_fd("sa", 1);
+}
+
+void	swap_b(t_dll *list_b)
+{
+	swap(list_b);
+	ft_putendl_fd("sb", 1);
+}
+
 //#include <stdio.h>
 //
 //int	main(void)

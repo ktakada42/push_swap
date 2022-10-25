@@ -24,6 +24,7 @@ void	push_a(t_dll *list_a, t_dll *list_b)
 	if (!can_list_push_front(list_a, b_first->value))
 		return ;
 	trim_first_node(list_b);
+	ft_putendl_fd("pa", 1);
 }
 
 void	push_b(t_dll *list_b, t_dll *list_a)
@@ -38,6 +39,7 @@ void	push_b(t_dll *list_b, t_dll *list_a)
 	if (!can_list_push_front(list_b, a_first->value))
 		return ;
 	trim_first_node(list_a);
+	ft_putendl_fd("pb", 1);
 }
 
 //#include <stdio.h>

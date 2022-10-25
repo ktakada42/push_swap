@@ -14,11 +14,18 @@
 # define OPERATION_H
 
 # include "doubly_linked_list.h"
+# include "../libft/includes/libft.h"
 
 void	swap(t_dll *list);
+void	swap_a(t_dll *list_a);
+void	swap_b(t_dll *list_b);
 void	push_a(t_dll *list_a, t_dll *list_b);
 void	push_b(t_dll *list_b, t_dll *list_a);
-void	rotate(t_dll *list);
-void	reverse_rotate(t_dll *list);
+void	rotate_a(t_dll *list_a);
+void	rotate_b(t_dll *list_b);
+void	rr(t_dll *list_a, t_dll *list_b);
+void	reverse_rotate_a(t_dll *list_a);
+void	reverse_rotate_b(t_dll *list_b);
+void	rrr(t_dll *list_a, t_dll *list_b);
 
 #endif //OPERATION_H

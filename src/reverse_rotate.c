@@ -12,6 +12,27 @@
 
 #include "../includes/operation.h"
 
+static void	reverse_rotate(t_dll *list);
+
+void	reverse_rotate_a(t_dll *list_a)
+{
+	reverse_rotate(list_a);
+	ft_putendl_fd("rra", 1);
+}
+
+void	reverse_rotate_b(t_dll *list_b)
+{
+	reverse_rotate(list_b);
+	ft_putendl_fd("rrb", 1);
+}
+
+void	rrr(t_dll *list_a, t_dll *list_b)
+{
+	reverse_rotate(list_a);
+	reverse_rotate(list_b);
+	ft_putendl_fd("rrr", 1);
+}
+
 void	reverse_rotate(t_dll *list)
 {
 	size_t	list_size;
