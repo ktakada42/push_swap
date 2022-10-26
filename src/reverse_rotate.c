@@ -40,9 +40,9 @@ void	reverse_rotate(t_dll *list)
 	t_dll	*start;
 
 	size = get_list_size(list);
-	if (size == 0 || size == 1 || size == 2)
+	if (size == 0 || size == 1)
 		return ;
-	if (size == 3)
+	if (size == 2)
 	{
 		swap(list);
 		return ;
