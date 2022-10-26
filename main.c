@@ -31,7 +31,7 @@ int	main(int argc, char **argv)
 	else
 	{
 		size = get_list_size(list);
-		if (size == 3)
+		if (size <= 5)
 			sort_small_list(list);
 	}
 	list_clear(list);
