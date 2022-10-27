@@ -28,7 +28,6 @@ void	sort_small_list(t_dll *list)
 	else if (size == 4)
 		sort_four_list(list);
 	else if (size == 5)
-	{
-	}
+		sort_five_list(list);
 	return ;
 }
