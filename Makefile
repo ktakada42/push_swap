@@ -28,6 +28,8 @@ SRCS := coordinate_compression.c \
 		reverse_rotate.c \
 		rotate.c \
 		sort_small_list.c \
+		sort_three_list.c \
+		sort_four_list.c \
 		swap.c \
 		utils.c \
 

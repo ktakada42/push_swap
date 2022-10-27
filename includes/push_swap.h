@@ -18,6 +18,10 @@
 # include "../includes/parse_args.h"
 # include "../includes/utils.h"
 
+int		get_rank_in_size(t_dll *list, int place);
+void	sort_three_list(t_dll *list);
+void	sort_four_list(t_dll *list);
+void	sort_five_list(t_dll *list);
 void	sort_small_list(t_dll *list);
 
 #endif //PUSH_SWAP_H
