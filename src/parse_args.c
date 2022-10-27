@@ -53,7 +53,7 @@ int	*parse_args_to_sorted_int_array(int len, char **args)
 	array = put_args_to_array(len, args);
 	if (array == NULL)
 		return (NULL);
-	copy = copy_int_array(array, len);
+	copy = duplicate_int_array(array, len);
 	if (copy == NULL)
 	{
 		free(array);

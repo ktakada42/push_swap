@@ -18,7 +18,7 @@ void	exit_with_error(void)
 	exit(EXIT_FAILURE);
 }
 
-int	*copy_int_array(int *array, int len)
+int	*duplicate_int_array(int *array, int len)
 {
 	int	*copy;
 	int	i;

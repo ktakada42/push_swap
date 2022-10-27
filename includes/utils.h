@@ -17,6 +17,6 @@
 # include "../libft/includes/libft.h"
 
 void	exit_with_error(void);
-int		*copy_int_array(int *array, int len);
+int		*duplicate_int_array(int *array, int len);
 
 #endif //UTILS_H
