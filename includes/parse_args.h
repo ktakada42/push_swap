@@ -15,6 +15,7 @@
 
 # include <stddef.h>
 # include "../includes/doubly_linked_list.h"
+# include "../includes/merge_sort.h"
 # include "../includes/push_swap_atoi.h"
 
 t_dll	*parse_args(int len, char **args);

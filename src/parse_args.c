@@ -14,7 +14,6 @@
 
 static int		*put_args_to_array(int len, char **args);
 static bool		is_args_unique(int *array, int len);
-static t_dll	*free_array(int *array);
 
 t_dll	*parse_args(int len, char **args)
 {
@@ -25,16 +24,26 @@ t_dll	*parse_args(int len, char **args)
 	array = put_args_to_array(len, args);
 	if (array == NULL)
 		return (NULL);
+	merge_sort(array, 0, len - 1);
 	if (!is_args_unique(array, len))
-		return (free_array(array));
+	{
+		free(array);
+		return (NULL);
+	}
 	i = 0;
 	list = new_doubly_linked_list();
 	if (list == NULL)
-		return (free_array(array));
+	{
+		free(array);
+		return (NULL);
+	}
 	while (i < len)
 	{
 		if (!can_list_push_back(list, array[i]))
-			free_list_and_exit(list);
+		{
+			free(array);
+			return (NULL);
+		}
 		i++;
 	}
 	free(array);
@@ -72,23 +81,18 @@ bool	is_args_unique(int *array, int len)
 {
 	int	i;
 	int	current;
+	int	prev;
 
 	i = 1;
-	current = array[0];
 	while (i < len)
 	{
-		if (array[i] == current)
-			return (false);
 		current = array[i];
+		prev = array[i - 1];
+		if (current == prev)
+			return (false);
 		i++;
 	}
 	return (true);
-}
-
-t_dll	*free_array(int *array)
-{
-	free(array);
-	return (NULL);
 }
 
 bool	is_list_sorted(t_dll *list)

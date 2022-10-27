@@ -20,6 +20,7 @@ SRCSDIR := ./src/
 
 SRCS := doubly_linked_list.c \
 		doubly_linked_list_operation.c \
+		merge_sort.c \
 		parse_args.c \
 		push.c \
 		push_swap_atoi.c \
