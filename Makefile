@@ -18,7 +18,8 @@ CFLAGS := -Wall -Wextra -Werror
 
 SRCSDIR := ./src/
 
-SRCS := doubly_linked_list.c \
+SRCS := coordinate_compression.c \
+		doubly_linked_list.c \
 		doubly_linked_list_operation.c \
 		merge_sort.c \
 		parse_args.c \

@@ -12,6 +12,7 @@
 
 #include "../includes/parse_args.h"
 
+static int		*parse_args_to_sorted_int_array(int len, char **args);
 static int		*put_args_to_array(int len, char **args);
 static bool		is_args_unique(int *array, int len);
 
@@ -21,15 +22,9 @@ t_dll	*parse_args(int len, char **args)
 	int		i;
 	t_dll	*list;
 
-	array = put_args_to_array(len, args);
+	array = parse_args_to_sorted_int_array(len, args);
 	if (array == NULL)
 		return (NULL);
-	merge_sort(array, 0, len - 1);
-	if (!is_args_unique(array, len))
-	{
-		free(array);
-		return (NULL);
-	}
 	i = 0;
 	list = new_doubly_linked_list();
 	if (list == NULL)
@@ -48,6 +43,32 @@ t_dll	*parse_args(int len, char **args)
 	}
 	free(array);
 	return (list);
+}
+
+int	*parse_args_to_sorted_int_array(int len, char **args)
+{
+	int		*array;
+	int		*copy;
+
+	array = put_args_to_array(len, args);
+	if (array == NULL)
+		return (NULL);
+	copy = copy_int_array(array, len);
+	if (copy == NULL)
+	{
+		free(array);
+		return (NULL);
+	}
+	merge_sort(copy, 0, len - 1);
+	if (!is_args_unique(copy, len))
+	{
+		free(array);
+		free(copy);
+		return (NULL);
+	}
+	array = coordinate_compression(array, copy, len);
+	free(copy);
+	return (array);
 }
 
 int	*put_args_to_array(int len, char **args)
