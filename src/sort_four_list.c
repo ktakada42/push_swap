@@ -30,7 +30,7 @@ void	sort_four_list(t_dll *list)
 	push_b(list_b, list);
 	sort_small_list(list);
 	insert_one_elem_to_sorted_three_list(list, list_b);
-	free(list_b);
+	list_clear(list_b);
 }
 
 int	get_rank_in_size(t_dll *list, int place)
