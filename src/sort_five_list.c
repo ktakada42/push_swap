@@ -14,37 +14,32 @@
 
 static void	check_first_two_elems_third_or_fourth_biggest(t_dll *list);
 
-void	sort_five_list(t_dll *list)
+void	sort_five_list(t_dll *list_a, t_dll *list_b)
 {
-	t_dll	*list_b;
 	int		i;
 	int		a_top;
 	int		a_last;
 	int		b_top;
 
-	if (is_list_sorted(list))
+	if (is_list_sorted(list_a))
 		return ;
-	check_first_two_elems_third_or_fourth_biggest(list);
-	list_b = new_doubly_linked_list();
-	if (list_b == NULL)
-		return ;
-	push_b(list_b, list);
-	push_b(list_b, list);
-	sort_three_list(list);
+	check_first_two_elems_third_or_fourth_biggest(list_a);
+	push_b(list_b, list_a);
+	push_b(list_b, list_a);
+	sort_three_list(list_a);
 	i = 0;
 	while (i < 2)
 	{
-		a_top = list->next->value;
-		a_last = list->prev->value;
+		a_top = list_a->next->value;
+		a_last = list_a->prev->value;
 		b_top = list_b->next->value;
-		push_a(list, list_b);
+		push_a(list_a, list_b);
 		if (b_top > a_last)
-			rotate_a(list);
+			rotate_a(list_a);
 		else if (b_top > a_top)
-			swap_a(list);
+			swap_a(list_a);
 		i++;
 	}
-	list_clear(list_b);
 }
 
 void	check_first_two_elems_third_or_fourth_biggest(t_dll *list)

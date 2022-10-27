@@ -20,8 +20,8 @@
 
 int		get_rank_in_size(t_dll *list, int place);
 void	sort_three_list(t_dll *list);
-void	sort_four_list(t_dll *list);
-void	sort_five_list(t_dll *list);
+void	sort_four_list(t_dll *list_a, t_dll *list_b);
+void	sort_five_list(t_dll *list_a, t_dll *list_b);
 void	sort_small_list(t_dll *list);
 
 #endif //PUSH_SWAP_H

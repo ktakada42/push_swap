@@ -14,23 +14,18 @@
 
 static void	insert_one_elem_to_sorted_three_list(t_dll *list, t_dll *list_b);
 
-void	sort_four_list(t_dll *list)
+void	sort_four_list(t_dll *list_a, t_dll *list_b)
 {
-	t_dll	*list_b;
 	int		top_nth_big;
 
-	if (is_list_sorted(list))
+	if (is_list_sorted(list_a))
 		return ;
-	top_nth_big = get_rank_in_size(list, 0);
+	top_nth_big = get_rank_in_size(list_a, 0);
 	if (top_nth_big == 3)
-		swap_a(list);
-	list_b = new_doubly_linked_list();
-	if (list_b == NULL)
-		return ;
-	push_b(list_b, list);
-	sort_small_list(list);
-	insert_one_elem_to_sorted_three_list(list, list_b);
-	list_clear(list_b);
+		swap_a(list_a);
+	push_b(list_b, list_a);
+	sort_small_list(list_a);
+	insert_one_elem_to_sorted_three_list(list_a, list_b);
 }
 
 int	get_rank_in_size(t_dll *list, int place)
