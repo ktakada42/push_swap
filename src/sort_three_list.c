@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/sort_small_list.h"
 
 static void	sort_three_list_main(t_dll *list, int first, int second, int third);
 

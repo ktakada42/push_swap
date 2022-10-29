@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/sort_small_list.h"
 
 static void	insert_one_elem_to_sorted_three_list(t_dll *list, t_dll *list_b);
 

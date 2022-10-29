@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/sort_small_list.h"
 
 static void	check_first_two_elems_third_or_fourth_biggest(t_dll *list);
 

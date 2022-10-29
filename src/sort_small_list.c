@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/sort_small_list.h"
 
 void	sort_small_list(t_dll *list)
 {
